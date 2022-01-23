@@ -1,15 +1,20 @@
-const AmountTable = (props) => {
+import { useContext } from "react"
+import AppContext from "/src/components/AppContext"
+
+const Dashboard = () => {
+  const { data, incoming, outgoing } = useContext(AppContext)
+
   return (
     <table className="w-full">
       <thead className="text-left text-xl">
         <tr>
-          <th className="w-1/2 p-1 border-2">RECETTES</th>
-          <th className="w-1/2 p-1 border-2">DÉPENSES</th>
+          <th className="w-1/2 p-1 border-2">INCOMING</th>
+          <th className="w-1/2 p-1 border-2">OUTCOMING</th>
         </tr>
       </thead>
       <tbody>
         <>
-          {datas.map(({ amount, description }, id) => (
+          {data.map(({ amount, description }, id) => (
             <tr
               key={id}
               className={`${
@@ -39,14 +44,14 @@ const AmountTable = (props) => {
         <tr className="w-full text-xl">
           <td className="w-1/2 p-1 border-2">
             <div className="flex flex-row items-center justify-between">
-              <p className="font-bold">TOTAL DES RECETTES</p>
-              <TotalIncoming />
+              <p className="font-bold">TOTAL</p>
+              <p className="font-bold text-green-500">{incoming} €</p>
             </div>
           </td>
           <td className="w-1/2 p-1 border-2">
             <div className="flex flex-row items-center justify-between">
-              <p className="font-bold">TOTAL DES DÉPENSES</p>
-              <TotalOutgoin />
+              <p className="font-bold">TOTAL</p>
+              <p className="font-bold text-red-500">{outgoing} €</p>
             </div>
           </td>
         </tr>
@@ -55,8 +60,8 @@ const AmountTable = (props) => {
         <tr>
           <td colSpan="2" className="w-full p-1 border-2 ">
             <div className="flex flex-row items-center justify-between px-5 py-3 text-2xl">
-              <p className="font-bold">RÉSULTATS</p>
-              <TotalAmount />
+              <p className="font-bold">RESULT</p>
+              <p className="font-bold">{incoming + outgoing} €</p>
             </div>
           </td>
         </tr>
@@ -65,4 +70,4 @@ const AmountTable = (props) => {
   )
 }
 
-export default AmountTable
+export default Dashboard

@@ -6,22 +6,22 @@ import EnterField from "/src/components/EnterField"
 
 const displayingErrorMessagesSchema = Yup.object().shape({
   amount: Yup.number()
-    .typeError("Le montant doit être un nombre")
+    .typeError("The amount must be a number")
     .test(
       "Amount equal to 0 ?",
-      "Le montant ne doit pas être égal à 0",
+      "The amount must not be equal to 0",
       (amount) => amount != 0
     )
-    .required("Le champ est requis"),
-  description: Yup.string().required("Le champ est requis"),
+    .required("Field is required"),
+  description: Yup.string().required("Field is required"),
 })
 
-const AddDashboard = (props) => {
-  const { addDatas } = useContext(AppContext)
+const AddDashboard = () => {
+  const { addData } = useContext(AppContext)
 
   const handleFormSubmit = useCallback(
     (values, { resetForm }) => {
-      addDatas({
+      addData({
         amount: Number(values.amount),
         description: values.description,
       })
@@ -29,7 +29,7 @@ const AddDashboard = (props) => {
 
       return true
     },
-    [addDatas]
+    [addData]
   )
 
   return (
@@ -46,7 +46,7 @@ const AddDashboard = (props) => {
           <EnterField
             id="amount"
             name="amount"
-            placeholder="La valeur"
+            placeholder="Entrer un nombre"
             errorType={errors.amount}
             touchedType={touched.amount}
           />
@@ -54,16 +54,16 @@ const AddDashboard = (props) => {
             type="textarea"
             id="description"
             name="description"
-            placeholder="Une description"
-            imputStyle="h-32"
+            placeholder="Entrer la description"
+            inputStyle="h-32"
             errorType={errors.description}
             touchedType={touched.description}
           />
           <button
-            className="w-full p-2 text-white bg-gray-700 hover:bg-gray-400"
+            className="w-2 p-1 text-white bg-gray-700 hover:bg-gray-400"
             type="submit"
           >
-            Ajouter
+            Add
           </button>
         </Form>
       )}

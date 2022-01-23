@@ -1,5 +1,4 @@
-import Nav from "/src/components/Nav"
-
+import Link from "next/link"
 const Header = ({ title }) => {
   return (
     <header className="h-16 px-10 mb-8 flex flex-row items-center justify-between bg-blue-500 text-white">
