@@ -1,18 +1,14 @@
 import Link from "next/link"
 const Header = ({ title }) => {
   return (
-    <header className="h-16 px-10 mb-8 flex flex-row items-center justify-between bg-blue-500 text-white">
+    <header className="h-20 px-10 mb-8 flex flex-row items-center justify-between bg-black text-white">
       <h1 className="text-4xl font-bold">{title}</h1>
       <nav className="text-lg flex flex-row items-center justify-between">
         <Link href="/">
-          <a className="hover:bg-blue-400 hover:font-bold py-2 text-center w-24">
-            Journal
-          </a>
+          <a className=" text-center w-24">Journal</a>
         </Link>
         <Link href="/addentry">
-          <a className="hover:bg-blue-400 hover:font-bold py-2 text-center w-24">
-            Add Entry
-          </a>
+          <a className=" text-center w-20">Add Entry</a>
         </Link>
       </nav>
     </header>

@@ -6,12 +6,12 @@ const EnterField = (props) => {
       <Field
         as={props.type}
         id={props.id}
-        className={`${props.inputStyle} w-full mb-1 p-2 border-2 rounded`}
+        className={`${props.inputStyle} w-6/12 mb-1 p-2 border-solid border-2 border border-black rounded`}
         name={props.name}
         placeholder={props.placeholder}
       ></Field>
       {props.touchedType && props.errorType && (
-        <div className="w-full p-2 bg-red-200 text-red-500">
+        <div className="w-6/12 p-2 bg-red-300 text-red-800">
           {props.errorType}
         </div>
       )}

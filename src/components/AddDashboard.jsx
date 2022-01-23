@@ -60,10 +60,10 @@ const AddDashboard = () => {
             touchedType={touched.description}
           />
           <button
-            className="w-2 p-1 text-white bg-gray-700 hover:bg-gray-400"
+            className="w-6/12 p-1 text-white border-solid border-2 bg-black "
             type="submit"
           >
-            Add
+            ADD
           </button>
         </Form>
       )}
